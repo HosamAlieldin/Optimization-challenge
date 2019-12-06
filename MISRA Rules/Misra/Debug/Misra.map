@@ -1,0 +1,212 @@
+******************************************************************************
+                  TI ARM Linker PC v18.12.3                    
+******************************************************************************
+>> Linked Fri Dec  6 18:07:38 2019
+
+OUTPUT FILE NAME:   <Misra.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 0000150c
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  RAM                   00000020   ffffffe0  000021ce  ffffde12  RWIX
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000020    00000020    00001570   00001570    r-x
+  00000020    00000020    00001570   00001570    r-x .text
+00001590    00001590    0000020a   00000000    rw-
+  00001590    00001590    0000020a   00000000    rw- .data
+0000179c    0000179c    00000030   00000030    r--
+  0000179c    0000179c    00000030   00000030    r-- .const
+000017d0    000017d0    00000800   00000000    rw-
+  000017d0    000017d0    00000800   00000000    rw- .stack
+00001fd0    00001fd0    00000224   00000224    r--
+  00001fd0    00001fd0    00000224   00000224    r-- .cinit
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.text      0    00000020    00001570     
+                  00000020    00000640     aes_decrypt.obj (.text)
+                  00000660    0000050c     aes_schedule.obj (.text)
+                  00000b6c    000004f8     aes_encrypt.obj (.text)
+                  00001064    000001a0     rtsv4_A_be_eabi.lib : memcpy32.asm.obj (.text)
+                  00001204    00000150     main.obj (.text)
+                  00001354    000000b0     rtsv4_A_be_eabi.lib : memset32.asm.obj (.text)
+                  00001404    000000a0                         : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  000014a4    00000068                         : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  0000150c    0000003c                         : boot_non_cortex_m.asm.obj (.text)
+                  00001548    00000020                         : args_main.c.obj (.text:_args_main)
+                  00001568    00000014                         : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  0000157c    00000008                         : pre_init.c.obj (.text:_system_pre_init)
+                  00001584    00000008                         : exit.c.obj (.text:abort:abort)
+                  0000158c    00000004                         : mpu_init.c.obj (.text:__mpu_init)
+
+.data      0    00001590    0000020a     UNINITIALIZED
+                  00001590    00000100     aes_decrypt.obj (.data:INV_SBOX$1)
+                  00001690    00000100     aes_encrypt.obj (.data:SBOX)
+                  00001790    0000000a     aes_schedule.obj (.data:RC$1)
+
+.const     0    0000179c    00000030     
+                  0000179c    00000010     main.obj (.const:.string:$P$T0$1)
+                  000017ac    00000010     main.obj (.const:.string:$P$T1$2)
+                  000017bc    00000010     main.obj (.const:.string:$P$T2$3)
+
+.cinit     0    00001fd0    00000224     
+                  00001fd0    00000212     (.cinit..data.load) [load image]
+                  000021e2    00000002     --HOLE-- [fill = 0]
+                  000021e4    00000008     (__TI_handler_table)
+                  000021ec    00000008     (__TI_cinit_table)
+
+.init_array 
+*          0    00000020    00000000     UNINITIALIZED
+
+.stack     0    000017d0    00000800     UNINITIALIZED
+                  000017d0    00000800     --HOLE--
+
+MODULE SUMMARY
+
+       Module                       code   ro data   rw data
+       ------                       ----   -------   -------
+    .\
+       aes_decrypt.obj              1600   0         256    
+       aes_encrypt.obj              1272   0         256    
+       aes_schedule.obj             1292   0         10     
+       main.obj                     336    48        0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       4500   48        522    
+                                                            
+    C:\ti\ccs920\ccs\tools\compiler\ti-cgt-arm_18.12.3.LTS\lib\rtsv4_A_be_eabi.lib
+       memcpy32.asm.obj             416    0         0      
+       memset32.asm.obj             176    0         0      
+       copy_decompress_lzss.c.obj   160    0         0      
+       autoinit.c.obj               104    0         0      
+       boot_non_cortex_m.asm.obj    60     0         0      
+       args_main.c.obj              32     0         0      
+       copy_decompress_none.c.obj   20     0         0      
+       exit.c.obj                   8      0         0      
+       pre_init.c.obj               8      0         0      
+       mpu_init.c.obj               4      0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       988    0         0      
+                                                            
+       Stack:                       0      0         2048   
+       Linker Generated:            0      546       0      
+    +--+----------------------------+------+---------+---------+
+       Grand Total:                 5488   594       2570   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000021ec records: 1, size/record: 8, table size: 8
+	.data: load addr=00001fd0, load size=00000212 bytes, run addr=00001590, run size=0000020a bytes, compression=copy
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 000021e4 records: 2, size/record: 4, table size: 8
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00001584  C$$EXIT                       
+00001690  SBOX                          
+00001fd0  __STACK_END                   
+00000800  __STACK_SIZE                  
+000021ec  __TI_CINIT_Base               
+000021f4  __TI_CINIT_Limit              
+000021e4  __TI_Handler_Table_Base       
+000021ec  __TI_Handler_Table_Limit      
+000014a4  __TI_auto_init_nobinit_nopinit
+00001404  __TI_decompress_lzss          
+00001568  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00001fd0  __TI_static_base__            
+00001354  __aeabi_memclr                
+00001354  __aeabi_memclr4               
+00001354  __aeabi_memclr8               
+00001064  __aeabi_memcpy                
+00001064  __aeabi_memcpy4               
+00001064  __aeabi_memcpy8               
+00001358  __aeabi_memset                
+00001358  __aeabi_memset4               
+00001358  __aeabi_memset8               
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+0000158c  __mpu_init                    
+000017d0  __stack                       
+00001548  _args_main                    
+0000150c  _c_int00                      
+UNDEFED   _system_post_cinit            
+0000157c  _system_pre_init              
+00001584  abort                         
+00000154  aes_decrypt_128               
+00000ca0  aes_encrypt_128               
+00000660  aes_key_schedule_128          
+ffffffff  binit                         
+00001204  main                          
+00001064  memcpy                        
+00001364  memset                        
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000154  aes_decrypt_128               
+00000660  aes_key_schedule_128          
+00000800  __STACK_SIZE                  
+00000ca0  aes_encrypt_128               
+00001064  __aeabi_memcpy                
+00001064  __aeabi_memcpy4               
+00001064  __aeabi_memcpy8               
+00001064  memcpy                        
+00001204  main                          
+00001354  __aeabi_memclr                
+00001354  __aeabi_memclr4               
+00001354  __aeabi_memclr8               
+00001358  __aeabi_memset                
+00001358  __aeabi_memset4               
+00001358  __aeabi_memset8               
+00001364  memset                        
+00001404  __TI_decompress_lzss          
+000014a4  __TI_auto_init_nobinit_nopinit
+0000150c  _c_int00                      
+00001548  _args_main                    
+00001568  __TI_decompress_none          
+0000157c  _system_pre_init              
+00001584  C$$EXIT                       
+00001584  abort                         
+0000158c  __mpu_init                    
+00001690  SBOX                          
+000017d0  __stack                       
+00001fd0  __STACK_END                   
+00001fd0  __TI_static_base__            
+000021e4  __TI_Handler_Table_Base       
+000021ec  __TI_CINIT_Base               
+000021ec  __TI_Handler_Table_Limit      
+000021f4  __TI_CINIT_Limit              
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   _system_post_cinit            
+
+[40 symbols]
